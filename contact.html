@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Jupiter Farms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Jupiter <span>Farms</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#shop">Shop</a></li>
+                    <li><a href="index.html#about">Our Story</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="nav-icon" id="search-btn">🔍</div>
+                <div class="nav-icon" id="cart-btn">🛒<span class="cart-count">0</span></div>
+                <div class="nav-icon" id="account-btn">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you. Reach out to us with any questions or feedback.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container" style="padding: 4rem 0;">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <form id="contact-form">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
+                        <input type="text" id="name" name="name" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
+                        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="about-text">
+                <h3>Visit Our Farm</h3>
+                <p>123 Farm Road, Countryside</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@jupiterfarms.com</p>
+                
+                <h3 style="margin-top: 2rem;">Hours</h3>
+                <p>Monday-Friday: 9am-6pm</p>
+                <p>Saturday: 10am-4pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jupiter Farms</h3>
+                    <p>Providing fresh, organic, and locally-sourced produce since 2001.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#shop">Shop</a></li>
+                        <li><a href="index.html#about">Our Story</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <p>123 Farm Road, Countryside</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@jupiterfarms.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday-Friday: 9am-6pm</p>
+                    <p>Saturday: 10am-4pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Jupiter Farms. All rights reserved. | ST10465627</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server
+            // For this demo, we'll just show a success message
+            showNotification('Thank you for your message! We will get back to you soon.');
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

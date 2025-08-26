@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Jupiter Farms | Organic, Locally-Sourced Produce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Jupiter <span>Farms</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="nav-icon" id="search-btn">🔍</div>
+                <div class="nav-icon" id="cart-btn">🛒<span class="cart-count">0</span></div>
+                <div class="nav-icon" id="account-btn">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shop Hero Section -->
+    <section class="hero shop-hero">
+        <div class="container hero-content">
+            <h1>Our Farm Fresh Products</h1>
+            <p>Browse our selection of organic, locally-sourced fruits and vegetables, harvested at peak freshness.</p>
+        </div>
+    </section>
+
+    <!-- Shop Products -->
+    <section class="container shop-container">
+        <div class="shop-header">
+            <h2 class="section-title">Our Products</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="fruits">Fruits</button>
+                <button class="filter-btn" data-filter="vegetables">Vegetables</button>
+                <button class="filter-btn" data-filter="greens">Greens</button>
+                <button class="filter-btn" data-filter="seasonal">Seasonal Specials</button>
+            </div>
+            
+            <!-- Sort Options -->
+            <div class="sort-options">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="popularity">Popularity</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Alphabetical</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="products-grid" id="products-container">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="pagination-btn" id="prev-page">← Previous</button>
+            <span class="page-numbers">Page 1 of 3</span>
+            <button class="pagination-btn" id="next-page">Next →</button>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section class="subscription">
+        <div class="container">
+            <h2 class="section-title">Weekly Subscription Box</h2>
+            <div class="subscription-box">
+                <h3>Never Run Out of Fresh Produce</h3>
+                <p>Subscribe to our weekly curated box of seasonal produce and enjoy a variety of fresh, organic fruits and vegetables delivered to your doorstep every week.</p>
+                <p>Choose from three sizes to fit your household needs.</p>
+                <button class="btn" id="subscription-btn">View Subscription Options</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jupiter Farms</h3>
+                    <p>Providing fresh, organic, and locally-sourced produce since 2001.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="our-story.html">Our Story</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <p>123 Farm Road, Countryside</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@jupiterfarms.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday-Friday: 9am-6pm</p>
+                    <p>Saturday: 10am-4pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Jupiter Farms. All rights reserved. | ST10465627</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-cart">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="cart-total" id="cart-total">Total: $0.00</div>
+            <button class="btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
