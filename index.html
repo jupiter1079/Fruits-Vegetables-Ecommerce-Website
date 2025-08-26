@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter Farms | Organic, Locally-Sourced Produce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Jupiter <span>Farms</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <div class="nav-icon" id="search-btn">🔍</div>
+                <div class="nav-icon" id="cart-btn">🛒<span class="cart-count">0</span></div>
+                <div class="nav-icon" id="account-btn">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Fresh, Organic & Locally-Sourced Produce</h1>
+            <p>Experience the difference of farm-fresh fruits and vegetables delivered straight from our family to your table.</p>
+            <a href="#shop" class="btn">Shop Now</a>
+            <a href="#about" class="btn btn-outline">Our Story</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="container" id="shop">
+        <h2 class="section-title">Featured Products</h2>
+        
+        <!-- Filter Buttons -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="fruits">Fruits</button>
+            <button class="filter-btn" data-filter="vegetables">Vegetables</button>
+            <button class="filter-btn" data-filter="greens">Greens</button>
+        </div>
+        
+        <div class="products-grid" id="products-container">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>From Our Family to Yours</h3>
+                    <p>Jupiter Farms is a local, family-owned supplier of high-quality, organic, and locally-sourced fruits and vegetables. For over two decades, we've been providing our community with the freshest produce straight from our farm.</p>
+                    <p>Our reputation is built on freshness, sustainability, and personalized customer service. We believe in transparent farming practices and building relationships with our customers.</p>
+                    <p>We partner with local farms who share our values of sustainable agriculture and ethical farming practices. Together, we're strengthening our local food system.</p>
+                    <a href="#" class="btn">Meet Our Farmers</a>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section class="subscription">
+        <div class="container">
+            <h2 class="section-title">Weekly Subscription Box</h2>
+            <div class="subscription-box">
+                <h3>Never Run Out of Fresh Produce</h3>
+                <p>Subscribe to our weekly curated box of seasonal produce and enjoy a variety of fresh, organic fruits and vegetables delivered to your doorstep every week.</p>
+                <p>Choose from three sizes to fit your household needs.</p>
+                <button class="btn btn-outline" id="subscription-btn">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title">From Our Blog</h2>
+            <div class="blog-posts" id="blog-container">
+                <!-- Blog posts will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jupiter Farms</h3>
+                    <p>Providing fresh, organic, and locally-sourced produce since 2001.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <p>123 Farm Road, Countryside</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@jupiterfarms.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday-Friday: 9am-6pm</p>
+                    <p>Saturday: 10am-4pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Jupiter Farms. All rights reserved. | ST10465627</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-cart">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="cart-total" id="cart-total">Total: $0.00</div>
+            <button class="btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
