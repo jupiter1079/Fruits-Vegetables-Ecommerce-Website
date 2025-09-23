@@ -14,10 +14,11 @@ Student Number: ST10465627
 4. [Proposed Website Features and Functionality](#4-proposed-website-features-and-functionality)  
 5. [Design and User Experience](#5-design-and-user-experience)  
 6. [Technical Requirements](#6-technical-requirements)  
-7. [Timeline and Milestones](#7-timeline-and-milestones)  
-8. [Budget](#8-budget)  
-9. [Wireframes](#9-wireframes)  
-10. [References](#10-references)
+7. [Timeline and Milestones](#7-timeline-and-milestones)
+8. [Css Architecture](#8-css-design-and-philosophy )
+9. [Budget](#9-budget)  
+10. [Wireframes](#10-wireframes)  
+11. [References](#11-references)
 
 1. Organisation Overview
 
@@ -124,7 +125,143 @@ Homepage:
 | Week 7      | Testing, Review, Client Feedback     |
 | Week 8      | Launch & Handover (Go-Live)          |
 
- 8. Budget
+8. CSS Architecture
+
+This CSS strategy embodies a clean, modern, and earthy aesthetic, aligning with Jupiter Farms’ values of sustainability and organic living. It emphasizes intuitive user experience, visual consistency, and responsiveness across all screen sizes.
+
+🌿Color Palette
+
+Inspired by nature and organic farming practices, the design uses a grounded and harmonious color scheme:
+
+Primary Green (#4CAF50) – Used for call-to-action buttons, highlights, and active states
+
+Earth Brown (#795548) – Accents, borders, and secondary components
+
+Cream Background (#FFF9E6) – Section backgrounds and content cards
+
+Pure White (#FFFFFF) – Text containers, headers, and form areas
+
+✍️ Typography
+
+Headings: Playfair Display – A serif font to convey elegance and trust
+
+Body Text: Lato – A modern, readable sans-serif for clear content delivery
+
+Fallback Fonts: System fonts for performance and cross-platform consistency
+
+🧱 CSS Architecture
+
+The project follows a modular, scalable CSS architecture, separating concerns across multiple stylesheets:
+
+1. Base Styles (base.css)
+
+Normalize/reset styles
+
+Define root variables (colors, spacing, fonts)
+
+Apply global styles for body, headings, links, etc.
+
+2. Layout Styles (layout.css)
+
+Responsive grid and Flexbox structure
+
+Header, nav, main, and footer layout styling
+
+Product grids and content alignment
+
+3. Component Styles (components.css)
+
+Buttons (primary, secondary, ghost)
+
+Cards (products, blogs, highlights)
+
+Forms (contact, checkout, newsletter)
+
+Navigation (desktop menu, mobile dropdown)
+
+4. Page-Specific Styles (pages/)
+
+Homepage: Hero banner and seasonal features
+
+Shop: Grid layout, filters, and product display
+
+About: Story-driven section formatting
+
+Blog: Article previews and recipe cards
+
+Contact: Form and location details
+
+📱 Responsive Design Strategy
+
+The layout is mobile-first, scaling smoothly across device sizes. Key breakpoints include:
+
+Mobile (default): 320px+
+
+Tablet: ≥ 768px
+
+Desktop: ≥ 1024px
+
+Large Screens: ≥ 1440px
+
+Responsive Features:
+
+Scalable typography
+
+Adaptive grid layouts
+
+Mobile-friendly navigation (hamburger menu)
+
+Optimized images for varied screen resolutions
+
+Touch-target spacing for buttons and links
+
+💡 User Experience Enhancements
+🧭 Navigation & Accessibility
+
+Sticky navigation bar for persistent menu access
+
+Strong visual hierarchy using spacing and font sizes
+
+WCAG AA-compliant color contrast for readability
+
+Keyboard-friendly with visible focus states
+
+Semantic HTML and ARIA labels for assistive tech
+
+🚀 Performance Optimization
+
+Minified CSS for faster load times
+
+Critical CSS inlined to prioritize visible content
+
+Lazy-loaded images for better performance
+
+Hardware-accelerated animations via transform and opacity
+
+✨ Interactive Elements
+
+Smooth hover and focus transitions
+
+Visual feedback for loading and form submissions
+
+Micro-interactions to enhance engagement without distraction
+
+🌐 Browser Compatibility
+
+The CSS is tested across modern browsers:
+
+✅ Google Chrome (latest 2 versions)
+
+✅ Mozilla Firefox (latest 2 versions)
+
+✅ Apple Safari (latest 2 versions)
+
+✅ Microsoft Edge (latest 2 versions)
+
+
+
+
+ 9. Budget
 
  Setup Costs (Year 1)
 
@@ -150,7 +287,7 @@ Homepage:
 | **Total**          | R8,682.50        |                                         |
 
 
- 9. Wireframes
+ 10. Wireframes
 
  Note: Wireframes to be attached separately as low-fidelity sketches.
 
@@ -160,7 +297,7 @@ Homepage:
 - Blog 
 - Contact Us
 
- 10. References
+ 11. References
 
 - Jupiter Farms. (2025).  
 - Patel, N. (2023). *Marketing Metrics: The Definitive Guide to Measuring Marketing Performance.*  
