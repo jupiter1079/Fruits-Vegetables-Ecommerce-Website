@@ -3,127 +3,735 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Jupiter Farms | Organic, Locally-Sourced Produce</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Jupiter Farms Blog - Growing tips, recipes, and stories from our farm to your table">
+    <title>Jupiter Farms Blog - Growing tips, recipes, and stories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #c8e6c9;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: #c8e6c9;
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-icons i {
+            margin-left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .header-icons i:hover {
+            transform: scale(1.1);
+        }
+        
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .search-box {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            width: 250px;
+            background: white;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            display: none;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .cart-count {
+            position: relative;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.8), rgba(45, 90, 39, 0.8)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Main Content */
+        .blog-content {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-posts {
+            flex: 2;
+        }
+        
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .blog-post:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #2d5a27;
+            transform: scaleY(0);
+            transition: transform 0.3s;
+        }
+        
+        .blog-post:hover:before {
+            transform: scaleY(1);
+        }
+        
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2d5a27;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .blog-post h2 {
+            color: #2d5a27;
+            margin: 15px 0;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+        }
+        
+        .blog-post:hover h2 {
+            color: #1e3f1a;
+        }
+        
+        .blog-post p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background: #2d5a27;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .read-more:hover {
+            background: #1e3f1a;
+            transform: translateX(5px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .sidebar-widget:hover {
+            transform: translateY(-3px);
+        }
+        
+        .sidebar-widget h3 {
+            color: #2d5a27;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        
+        .sidebar-widget h3:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #2d5a27;
+        }
+        
+        .categories-list {
+            list-style: none;
+        }
+        
+        .categories-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+            transition: padding-left 0.3s;
+        }
+        
+        .categories-list li:hover {
+            padding-left: 5px;
+        }
+        
+        .categories-list a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .categories-list a:hover {
+            color: #2d5a27;
+        }
+        
+        .subscribe-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+        
+        .subscribe-form input:focus {
+            border-color: #2d5a27;
+            outline: none;
+        }
+        
+        .subscribe-form button {
+            width: 100%;
+            background: #2d5a27;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .subscribe-form button:hover {
+            background: #1e3f1a;
+        }
+        
+        .recent-posts {
+            list-style: none;
+        }
+        
+        .recent-posts li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            transition: padding-left 0.3s;
+        }
+        
+        .recent-posts li:hover {
+            padding-left: 5px;
+        }
+        
+        .recent-posts a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .recent-posts a:hover {
+            color: #2d5a27;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .pagination a {
+            color: #2d5a27;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background: #e8f5e9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d5a27;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #c8e6c9;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #c8e6c9;
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #c8e6c9;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #2d5a27;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-content {
+                flex-direction: column;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .header-icons {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .search-box {
+                width: 200px;
+                right: -50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .blog-post {
+                padding: 20px;
+            }
+            
+            .blog-post h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">Jupiter <span>Farms</span></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="our-story.html">Our Story</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">Jupiter Farms</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
-            </nav>
-            <div class="nav-icons">
-                <div class="nav-icon" id="search-btn">🔍</div>
-                <div class="nav-icon" id="cart-btn">🛒<span class="cart-count">0</span></div>
-                <div class="nav-icon" id="account-btn">👤</div>
+                <div class="header-icons">
+                    <div class="search-container">
+                        <i class="fas fa-search" id="search-icon"></i>
+                        <div class="search-box" id="search-box">
+                            <input type="text" placeholder="Search blog posts...">
+                        </div>
+                    </div>
+                    <div class="cart-count">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </div>
+                    <i class="fas fa-user"></i>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Blog Hero Section -->
-    <section class="hero blog-hero">
-        <div class="container hero-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Blog Introduction">
+        <div class="container">
             <h1>Jupiter Farms Blog</h1>
             <p>Growing tips, recipes, and stories from our farm to your table</p>
         </div>
     </section>
 
-    <!-- Blog Content -->
-    <section class="container blog-container">
+    <!-- Main Content -->
+    <div class="container">
         <div class="blog-content">
-            <!-- Main Blog Posts -->
-            <div class="blog-posts" id="blog-posts">
-                <!-- Featured Post -->
-                <article class="blog-post featured">
-                    <div class="post-image featured-image"></div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">October 15, 2023</span>
-                            <span class="post-category">Farming Practices</span>
-                        </div>
-                        <h2 class="post-title">Preparing Our Fields for Winter: A Guide to Cover Cropping</h2>
-                        <p class="post-excerpt">As the growing season winds down, we're implementing our winter cover cropping strategy to protect and nourish our soil through the colder months. Learn how cover crops like winter rye and crimson clover benefit soil health and prepare our fields for a productive spring season.</p>
-                        <a href="blog-post.html" class="read-more">Read More →</a>
-                    </div>
-                </article>
-                
-                <!-- Regular Posts -->
+            <!-- Blog Posts -->
+            <main class="blog-posts">
+                <!-- Post 1 -->
                 <article class="blog-post">
-                    <div class="post-image post-image-1"></div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">October 8, 2023</span>
-                            <span class="post-category">Recipes</span>
-                        </div>
-                        <h2 class="post-title">5 Hearty Root Vegetable Recipes for Autumn</h2>
-                        <p class="post-excerpt">Make the most of autumn's harvest with these comforting recipes featuring carrots, beets, parsnips, and turnips. From roasted vegetable medleys to hearty soups, these dishes will warm you up on chilly fall evenings.</p>
-                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    <div class="post-meta">
+                        <span>October 15, 2023</span> 
+                        <span class="post-category">Farming Practices</span>
                     </div>
+                    <h2>Preparing Our Fields for Winter: A Guide to Cover Cropping</h2>
+                    <p>As the growing season winds down, we're implementing our winter cover cropping strategy to protect and nourish our soil through the colder months. Learn how cover crops like winter rye and crimson clover benefit soil health and prepare our fields for a productive spring season.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </article>
-                
+
+                <!-- Post 2 -->
                 <article class="blog-post">
-                    <div class="post-image post-image-2"></div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">October 1, 2023</span>
-                            <span class="post-category">Sustainability</span>
-                        </div>
-                        <h2 class="post-title">How We're Reducing Food Waste on Our Farm</h2>
-                        <p class="post-excerpt">At Jupiter Farms, we're committed to minimizing food waste through innovative practices like "ugly" produce boxes, composting programs, and partnerships with local food banks. Discover how we're working toward a zero-waste operation.</p>
-                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    <div class="post-meta">
+                        <span>October 8, 2023</span> 
+                        <span class="post-category">Recipes</span>
                     </div>
+                    <h2>5 Hearty Root Vegetable Recipes for Autumn</h2>
+                    <p>Make the most of autumn's harvest with these comforting recipes featuring carrots, beets, parsnips, and turnips. From roasted vegetable medleys to hearty soups, these dishes will warm you up on chilly fall evenings.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </article>
-                
+
+                <!-- Post 3 -->
                 <article class="blog-post">
-                    <div class="post-image post-image-3"></div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">September 24, 2023</span>
-                            <span class="post-category">Gardening Tips</span>
-                        </div>
-                        <h2 class="post-title">Growing Your Own Fall Garden: A Beginner's Guide</h2>
-                        <p class="post-excerpt">Even as temperatures drop, you can still enjoy fresh produce from your garden. Learn which cold-hardy vegetables to plant now for a fall harvest, plus tips for protecting your plants from early frosts.</p>
-                        <a href="blog-post.html" class="read-more">Read More →</a>
+                    <div class="post-meta">
+                        <span>October 1, 2023</span> 
+                        <span class="post-category">Sustainability</span>
                     </div>
+                    <h2>How We're Reducing Food Waste on Our Farm</h2>
+                    <p>At Jupiter Farms, we're committed to minimizing food waste through innovative practices like "ugly" produce boxes, composting programs, and partnerships with local food banks. Discover how we're working toward a zero-waste operation.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </article>
-            </div>
-            
+
+                <!-- Post 4 -->
+                <article class="blog-post">
+                    <div class="post-meta">
+                        <span>September 24, 2023</span> 
+                        <span class="post-category">Gardening Tips</span>
+                    </div>
+                    <h2>Growing Your Own Fall Garden: A Beginner's Guide</h2>
+                    <p>Even as temperatures drop, you can still enjoy fresh produce from your garden. Learn which cold-hardy vegetables to plant now for a fall harvest, plus tips for protecting your plants from early winter.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <!-- Pagination -->
+                <nav class="pagination" aria-label="Blog pagination">
+                    <a href="#" aria-label="Previous page">← Previous</a>
+                    <a href="#" aria-label="Page 1" class="active">1</a>
+                    <a href="#" aria-label="Page 2">2</a>
+                    <a href="#" aria-label="Page 3">3</a>
+                    <a href="#" aria-label="Page 4">4</a>
+                    <a href="#" aria-label="Next page">Next →</a>
+                </nav>
+            </main>
+
             <!-- Sidebar -->
-            <aside class="blog-sidebar">
+            <aside class="sidebar">
+                <!-- About Widget -->
                 <div class="sidebar-widget">
                     <h3>About Our Blog</h3>
                     <p>Welcome to the Jupiter Farms blog, where we share farming insights, seasonal recipes, sustainability tips, and stories from life on our organic farm.</p>
                 </div>
-                
+
+                <!-- Categories Widget -->
                 <div class="sidebar-widget">
                     <h3>Categories</h3>
                     <ul class="categories-list">
-                        <li><a href="#">Farming Practices (12)</a></li>
-                        <li><a href="#">Recipes (24)</a></li>
-                        <li><a href="#">Sustainability (8)</a></li>
-                        <li><a href="#">Gardening Tips (15)</a></li>
-                        <li><a href="#">Farm News (10)</a></li>
-                        <li><a href="#">Seasonal Guides (6)</a></li>
+                        <li><a href="#">Farming Practices <span>(12)</span></a></li>
+                        <li><a href="#">Recipes <span>(24)</span></a></li>
+                        <li><a href="#">Sustainability <span>(8)</span></a></li>
+                        <li><a href="#">Gardening Tips <span>(15)</span></a></li>
+                        <li><a href="#">Farm News <span>(10)</span></a></li>
+                        <li><a href="#">Seasonal Guides <span>(6)</span></a></li>
                     </ul>
                 </div>
-                
+
+                <!-- Subscribe Widget -->
                 <div class="sidebar-widget">
                     <h3>Subscribe</h3>
                     <p>Never miss a post! Subscribe to our newsletter for the latest blog updates, seasonal recipes, and farming news.</p>
                     <form class="subscribe-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn">Subscribe</button>
+                        <input type="email" placeholder="Your email address" required aria-label="Email address for subscription">
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
-                
+
+                <!-- Recent Posts Widget -->
                 <div class="sidebar-widget">
                     <h3>Recent Posts</h3>
                     <ul class="recent-posts">
@@ -136,54 +744,39 @@
                 </div>
             </aside>
         </div>
-        
-        <!-- Pagination -->
-        <div class="pagination">
-            <button class="pagination-btn" id="prev-page">← Previous</button>
-            <span class="page-numbers">Page 1 of 4</span>
-            <button class="pagination-btn" id="next-page">Next →</button>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Stay Connected with Jupiter Farms</h2>
-                <p>Subscribe to our newsletter for seasonal recipes, farming updates, and exclusive offers.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Jupiter Farms</h3>
                     <p>Providing fresh, organic, and locally-sourced produce since 2001.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="our-story.html">Our Story</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Contact Information</h3>
-                    <p>123 Farm Road, Countryside</p>
+                    <p>626 Makou Street, Monument Park</p>
                     <p>Phone: (123) 456-7890</p>
                     <p>Email: info@jupiterfarms.com</p>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Hours</h3>
                     <p>Monday-Friday: 9am-6pm</p>
                     <p>Saturday: 10am-4pm</p>
@@ -191,15 +784,84 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Jupiter Farms. All rights reserved. | ST10465627</p>
+                <p>© 2023 Jupiter Farms. All rights reserved. | ST10465627</p>
             </div>
         </div>
     </footer>
 
-    <!-- Notification -->
-    <div class="notification" id="notification"></div>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
-    <script src="script.js"></script>
-    <script src="blog.js"></script>
+    <script>
+        // Search functionality
+        document.getElementById('search-icon').addEventListener('click', function() {
+            const searchBox = document.getElementById('search-box');
+            searchBox.style.display = searchBox.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close search box when clicking outside
+        document.addEventListener('click', function(event) {
+            const searchIcon = document.getElementById('search-icon');
+            const searchBox = document.getElementById('search-box');
+            
+            if (!searchIcon.contains(event.target) && !searchBox.contains(event.target)) {
+                searchBox.style.display = 'none';
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add some cart functionality (placeholder)
+        document.querySelector('.fa-shopping-cart').addEventListener('click', function() {
+            alert('Cart functionality would be implemented here!');
+        });
+
+        // Add some user functionality (placeholder)
+        document.querySelector('.fa-user').addEventListener('click', function() {
+            alert('User login/account functionality would be implemented here!');
+        });
+
+        // Add subtle animations to blog posts when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply to blog posts
+        document.querySelectorAll('.blog-post').forEach(post => {
+            post.style.opacity = 0;
+            post.style.transform = 'translateY(20px)';
+            post.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(post);
+        });
+    </script>
 </body>
 </html>
