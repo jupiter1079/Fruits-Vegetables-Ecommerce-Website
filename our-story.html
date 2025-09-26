@@ -3,8 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Jupiter Farms' journey from a small family operation to a certified organic farm providing fresh, locally-sourced produce since 2001.">
     <title>Our Story | Jupiter Farms | Organic, Locally-Sourced Produce</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #a8d08d;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: #a8d08d;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-icon {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Story Timeline */
+        .story-container {
+            padding: 80px 0;
+        }
+        
+        .story-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #2d5a27;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-year {
+            background-color: #2d5a27;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 80px;
+            text-align: center;
+            margin-right: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        
+        .timeline-content h3 {
+            color: #2d5a27;
+            margin-bottom: 10px;
+        }
+        
+        /* Practices Section */
+        .practices {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2d5a27;
+        }
+        
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .practice-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .practice-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .practice-card h3 {
+            margin-bottom: 15px;
+            color: #2d5a27;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .member-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-size: cover;
+            background-position: center;
+            border: 5px solid #a8d08d;
+        }
+        
+        .member-1 {
+            background-image: url('https://images.unsplash.com/photo-1581093458799-ee9c2c5c670d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+        
+        .member-2 {
+            background-image: url('https://images.unsplash.com/photo-1581093458799-ee9c2c5c670d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+        
+        .member-3 {
+            background-image: url('https://images.unsplash.com/photo-1581093458799-ee9c2c5c670d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+        
+        .team-member h3 {
+            margin-bottom: 5px;
+            color: #2d5a27;
+        }
+        
+        .role {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .center-btn {
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #2d5a27;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1e3d1a;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2d5a27;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a8d08d;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #a8d08d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2d5a27;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin: 20px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .story-timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-year {
+                width: 60px;
+                margin-right: 20px;
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -21,23 +390,24 @@
                 </ul>
             </nav>
             <div class="nav-icons">
-                <div class="nav-icon" id="search-btn">🔍</div>
-                <div class="nav-icon" id="cart-btn">🛒<span class="cart-count">0</span></div>
-                <div class="nav-icon" id="account-btn">👤</div>
+                <div class="nav-icon" id="search-btn" aria-label="Search">🔍</div>
+                <div class="nav-icon" id="cart-btn" aria-label="Shopping Cart">🛒<span class="cart-count">0</span></div>
+                <div class="nav-icon" id="account-btn" aria-label="Account">👤</div>
             </div>
         </div>
     </header>
 
     <!-- Story Hero Section -->
-    <section class="hero story-hero">
+    <section class="hero story-hero" aria-labelledby="story-heading">
         <div class="container hero-content">
-            <h1>Our Story</h1>
+            <h1 id="story-heading">Our Story</h1>
             <p>Two decades of passion for organic farming and community connection</p>
         </div>
     </section>
 
     <!-- Our Story Content -->
-    <section class="container story-container">
+    <section class="container story-container" aria-labelledby="timeline-heading">
+        <h2 id="timeline-heading" class="sr-only">Our Journey Timeline</h2>
         <div class="story-timeline">
             <div class="timeline-item">
                 <div class="timeline-year">2001</div>
@@ -82,30 +452,30 @@
     </section>
 
     <!-- Farming Practices -->
-    <section class="practices">
+    <section class="practices" aria-labelledby="practices-heading">
         <div class="container">
-            <h2 class="section-title">Our Farming Practices</h2>
+            <h2 id="practices-heading" class="section-title">Our Farming Practices</h2>
             <div class="practices-grid">
                 <div class="practice-card">
-                    <div class="practice-icon">🌱</div>
+                    <div class="practice-icon" aria-hidden="true">🌱</div>
                     <h3>Sustainable Agriculture</h3>
                     <p>We implement crop rotation, cover cropping, and composting to maintain soil health and fertility without relying on synthetic fertilizers.</p>
                 </div>
                 
                 <div class="practice-card">
-                    <div class="practice-icon">💧</div>
+                    <div class="practice-icon" aria-hidden="true">💧</div>
                     <h3>Water Conservation</h3>
                     <p>Our drip irrigation systems and rainwater harvesting methods ensure we use water responsibly and efficiently.</p>
                 </div>
                 
                 <div class="practice-card">
-                    <div class="practice-icon">🐝</div>
+                    <div class="practice-icon" aria-hidden="true">🐝</div>
                     <h3>Biodiversity</h3>
                     <p>We maintain pollinator habitats and practice companion planting to create a balanced ecosystem on our farm.</p>
                 </div>
                 
                 <div class="practice-card">
-                    <div class="practice-icon">👨‍🌾</div>
+                    <div class="practice-icon" aria-hidden="true">👨‍🌾</div>
                     <h3>Fair Labor Practices</h3>
                     <p>We believe in treating our farm workers with respect, providing fair wages, and safe working conditions.</p>
                 </div>
@@ -114,25 +484,25 @@
     </section>
 
     <!-- Meet the Team -->
-    <section class="team container">
-        <h2 class="section-title">Meet Our Farmers</h2>
+    <section class="team container" aria-labelledby="team-heading">
+        <h2 id="team-heading" class="section-title">Meet Our Farmers</h2>
         <div class="team-grid">
             <div class="team-member">
-                <div class="member-image member-1"></div>
-                <h3>James & Sarah Jupiter</h3>
-                <p class="role">Founders</p>
-                <p>With backgrounds in agricultural science, James and Sarah started Jupiter Farms with a vision to create a sustainable local food source for their community.</p>
+                <div class="member-image member-1" aria-label="Photo of James"></div>
+                <h3>James</h3>
+                <p class="role">Co-Founders</p>
+                <p>With backgrounds in agricultural science, James and Jupiter started Jupiter Farms with a vision to create a sustainable local food source for their community.</p>
             </div>
             
             <div class="team-member">
-                <div class="member-image member-2"></div>
+                <div class="member-image member-2" aria-label="Photo of Miguel Rodriguez"></div>
                 <h3>Miguel Rodriguez</h3>
                 <p class="role">Head Grower</p>
                 <p>Miguel brings 25 years of organic farming experience and a deep knowledge of heirloom varieties and sustainable growing techniques.</p>
             </div>
             
             <div class="team-member">
-                <div class="member-image member-3"></div>
+                <div class="member-image member-3" aria-label="Photo of Emily Chen"></div>
                 <h3>Emily Chen</h3>
                 <p class="role">Sustainability Coordinator</p>
                 <p>Emily oversees our environmental initiatives, from composting programs to renewable energy projects, ensuring we minimize our ecological footprint.</p>
@@ -163,7 +533,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Contact Information</h3>
-                    <p>123 Farm Road, Countryside</p>
+                    <p>626 Makou Street, Monument Park</p>
                     <p>Phone: (123) 456-7890</p>
                     <p>Email: info@jupiterfarms.com</p>
                 </div>
@@ -181,8 +551,64 @@
     </footer>
 
     <!-- Notification -->
-    <div class="notification" id="notification"></div>
+    <div class="notification" id="notification" role="alert" aria-live="polite"></div>
 
-    <script src="script.js"></script>
+    <script>
+        // Basic functionality for the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple cart count functionality
+            const cartBtn = document.getElementById('cart-btn');
+            const cartCount = document.querySelector('.cart-count');
+            
+            cartBtn.addEventListener('click', function() {
+                let count = parseInt(cartCount.textContent);
+                count++;
+                cartCount.textContent = count;
+                
+                // Show notification
+                const notification = document.getElementById('notification');
+                notification.textContent = 'Item added to cart!';
+                notification.classList.add('show');
+                
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                }, 3000);
+            });
+            
+            // Search functionality placeholder
+            const searchBtn = document.getElementById('search-btn');
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = prompt('What are you looking for?');
+                if (searchTerm) {
+                    // In a real implementation, this would redirect to search results
+                    alert(`Searching for: ${searchTerm}`);
+                }
+            });
+            
+            // Account functionality placeholder
+            const accountBtn = document.getElementById('account-btn');
+            accountBtn.addEventListener('click', function() {
+                // In a real implementation, this would show account options
+                alert('Account options would appear here');
+            });
+        });
+        
+        // Screen reader only class for accessibility
+        const style = document.createElement('style');
+        style.textContent = `
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
