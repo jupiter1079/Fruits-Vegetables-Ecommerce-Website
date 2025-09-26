@@ -4,26 +4,406 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jupiter Farms | Organic, Locally-Sourced Produce</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+       
+       /* Base Styles & Variables */
+:root {
+    --primary-green: #4CAF50;
+    --primary-brown: #795548;
+    --light-gray: #f9f9f9;
+    --dark-gray: #333;
+    --white: #ffffff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--white);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-brown);
+}
+
+/* Layout Components */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: var(--primary-brown);
+    color: var(--white);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.logo span {
+    color: var(--primary-brown);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: var(--primary-green);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    color: var(--white);
+    padding: 6rem 1rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Featured Products */
+.section-title {
+    text-align: center;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--primary-green);
+    margin: 0.5rem auto;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    height: 200px;
+    background-color: var(--light-gray);
+    background-position: center;
+    background-size: cover;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-weight: bold;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+/* About Section */
+.about {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    height: 400px;
+    background: url('https://images.unsplash.com/photo-1620654458539-b4c186f32a32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    border-radius: 8px;
+}
+
+/* Subscription Section */
+.subscription {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.subscription-box {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subscription-box h2 {
+    color: var(--white);
+}
+
+/* Blog Section */
+.blog {
+    background-color: var(--light-gray);
+    padding: 4rem 0;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-post {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.blog-img {
+    height: 200px;
+    background-color: var(--primary-brown);
+    background-position: center;
+    background-size: cover;
+}
+
+.blog-content {
+    padding: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h3 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-column h3:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-green);
+    margin-top: 0.5rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-green);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        width: 100%;
+    }
+}
+    </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+        <!-- Header & Navigation -->
+
     <header>
         <div class="container header-container">
             <div class="logo">Jupiter <span>Farms</span></div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#shop">Shop</a></li>
                     <li><a href="#about">Our Story</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="nav-icons">
-                <div class="nav-icon" id="search-btn">🔍</div>
-                <div class="nav-icon" id="cart-btn">🛒<span class="cart-count">0</span></div>
-                <div class="nav-icon" id="account-btn">👤</div>
+                <div class="nav-icon">🔍</div>
+                <div class="nav-icon">🛒</div>
+                <div class="nav-icon">👤</div>
             </div>
         </div>
     </header>
@@ -41,17 +421,39 @@
     <!-- Featured Products -->
     <section class="container" id="shop">
         <h2 class="section-title">Featured Products</h2>
-        
-        <!-- Filter Buttons -->
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">All Products</button>
-            <button class="filter-btn" data-filter="fruits">Fruits</button>
-            <button class="filter-btn" data-filter="vegetables">Vegetables</button>
-            <button class="filter-btn" data-filter="greens">Greens</button>
-        </div>
-        
-        <div class="products-grid" id="products-container">
-            <!-- Products will be dynamically inserted here -->
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Organic Apples</h3>
+                    <p class="product-price">$4.99 / lb</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1445282768818-728615cc910a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Fresh Carrots</h3>
+                    <p class="product-price">$2.99 / bunch</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Seasonal Berries</h3>
+                    <p class="product-price">$5.99 / box</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1590779033100-9f60a05a013d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Mixed Greens</h3>
+                    <p class="product-price">$3.99 / bag</p>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -80,7 +482,7 @@
                 <h3>Never Run Out of Fresh Produce</h3>
                 <p>Subscribe to our weekly curated box of seasonal produce and enjoy a variety of fresh, organic fruits and vegetables delivered to your doorstep every week.</p>
                 <p>Choose from three sizes to fit your household needs.</p>
-                <button class="btn btn-outline" id="subscription-btn">Learn More</button>
+                <button class="btn btn-outline">Learn More</button>
             </div>
         </div>
     </section>
@@ -89,8 +491,31 @@
     <section class="blog" id="blog">
         <div class="container">
             <h2 class="section-title">From Our Blog</h2>
-            <div class="blog-posts" id="blog-container">
-                <!-- Blog posts will be dynamically inserted here -->
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="blog-content">
+                        <h3>5 Ways to Use Green Beans</h3>
+                        <p>Discover delicious recipes that make the most of this season's abundant green beans varieties.</p>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="blog-content">
+                        <h3>The Benefits of Organic Rice Farming</h3>
+                        <p>Learn how organic rice practices contribute to healthier soil, food, and communities.</p>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="blog-content">
+                        <h3>How to Store Micro Organic Seeds for Freshness Before Planting</h3>
+                        <p>Extend the life of your produce with these simple storage techniques.</p>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -106,16 +531,16 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#shop">Shop</a></li>
                         <li><a href="#about">Our Story</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Information</h3>
-                    <p>123 Farm Road, Countryside</p>
+                    <p>626 Makou Street, Monument Park</p>
                     <p>Phone: (123) 456-7890</p>
                     <p>Email: info@jupiterfarms.com</p>
                 </div>
@@ -131,23 +556,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Cart Modal -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-cart">&times;</span>
-            <h2>Your Cart</h2>
-            <div class="cart-items" id="cart-items">
-                <!-- Cart items will be dynamically inserted here -->
-            </div>
-            <div class="cart-total" id="cart-total">Total: $0.00</div>
-            <button class="btn" id="checkout-btn">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification"></div>
-
-    <script src="script.js"></script>
 </body>
 </html>
