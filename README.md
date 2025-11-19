@@ -1,308 +1,405 @@
-   Fruits-Vegetables-Ecommerce-Website
-   For selling Fruits and Vegetables. 
-🌿 Website Project Proposal: Jupiter Farms
+🌿 Project Overview
+Jupiter Farms is a modern, responsive e-commerce website for selling fresh, organic fruits and vegetables. Built with a mobile-first approach, the website showcases the farm's products while providing an intuitive shopping experience.
 
-Subject: WEDE5020 (2025)  
-Student: Jupiter Ngwenya  
-Student Number: ST10465627  
+✨ Features
+Core Functionality
+Responsive Design - Optimized for all devices (mobile, tablet, desktop)
 
- Table of Contents
+Product Showcase - Featured products with pricing and add-to-cart functionality
 
-1. [Organisation Overview](#1-organisation-overview)  
-2. [Website Goals and Objectives](#2-website-goals-and-objectives)  
-3. [Current Website Analysis](#3-current-website-analysis-if-applicable)  
-4. [Proposed Website Features and Functionality](#4-proposed-website-features-and-functionality)  
-5. [Design and User Experience](#5-design-and-user-experience)  
-6. [Technical Requirements](#6-technical-requirements)  
-7. [Timeline and Milestones](#7-timeline-and-milestones)
-8. [Css Architecture](#8-css-design-and-philosophy )
-9. [Budget](#9-budget)  
-10. [Wireframes](#10-wireframes)  
-11. [References](#11-references)
+Company Story - Engaging about section with farm history and values
 
-1. Organisation Overview
+Blog Integration - Content marketing section for recipes and farming tips
 
- Name: Jupiter Farms  
-  Brief History:  
-  Founded in 2012 in Mpumalanga, Jupiter Farms began as a small, family-run organic farm. Over time, it has grown into a trusted source of fresh, pesticide-free produce delivered through local markets and a CSA    box scheme.
+Contact System - Advanced form validation and submission
 
-Mission:  
-  To provide the freshest, most nutritious, and sustainably grown organic produce while caring for the health of the environment.
+Subscription Service - Weekly produce box subscription options
 
-  Vision:  
-  To become the regional leader in organic food accessibility and strengthen the farmer-consumer relationship.
+Technical Features
+Modern CSS Architecture - Modular, scalable styling with CSS variables
 
-  Target Audience: 
-  Health-conscious consumers (ages 25–55), restaurants, chefs, and CSA participants.
+Form Validation - Comprehensive client-side validation system
 
- 2. Website Goals and Objectives
+Interactive Elements - Smooth animations and hover effects
 
-  Primary Goal:  
-  Shift from manual sales to an e-commerce model for increased efficiency and revenue.
+Accessibility - WCAG compliant design patterns
 
--   Secondary Goals: 
-  - Share the farm's story and values.  
-  - Educate on organic farming benefits.  
-  - Share seasonal recipes.
+Performance Optimized - Efficient loading and smooth interactions
 
--   Key Performance Indicators (KPIs):  
-  - Conversion rate: 5%  
-  - Organic traffic: +25% in 6 months  
-  - AOV: R350  
-  - Bounce rate: <40%
+🛠 Technology Stack
+Frontend: HTML5, CSS3, JavaScript (ES6+)
 
-3. Current Website Analysis (if applicable)
+Styling: Custom CSS with CSS Grid and Flexbox
 
-- Current Status:  
-  No existing website. Orders managed via Facebook, phone, and social media DMs.
+Architecture: Modular CSS with component-based structure
 
-- Challenges:  
-    No order tracking  
-    Inefficient communication  
-    Limited reach and scalability
+Icons: Unicode emojis for cross-platform compatibility
 
+Images: Unsplash integration for high-quality visuals
 
+📁 Project Structure
+text
+jupiter-farms/
+├── index.html              # Main homepage
+├── style.css               # Additional styles (forms, components)
+├── script.js               # JavaScript functionality
+├── shop.html              # Product catalog page
+├── our-story.html         # About us page
+├── blog.html              # Blog and recipes
+└── contact.html           # Contact form page
+🎨 Design System
+Color Palette
+Primary Green: #2d5a27 (Brand identity, buttons)
 
-4. Proposed Website Features and Functionality
+Primary Brown: #795548 (Accents, secondary elements)
 
-Homepage:  
-  Seasonal highlights, strong CTA buttons, and value propositions
+Light Gray: #f9f9f9 (Backgrounds, sections)
 
-  Online Shop:  
-  Product categories (Fruits, Vegetables, Boxes), secure cart, and checkout with PayFast or Shopify Payments
+Dark Gray: #333 (Text, headings)
 
-  CSA Page: 
-  Explanation, tiers, benefits, and sign-up form
+Accent Yellow: #ffd700 (Highlights, notifications)
 
-  About Us: 
-  Visual storytelling, farm history, team bios
+Typography
+Headings: System font stack with 600-700 weight
 
-  Blog & Recipes: 
-  SEO-optimized content around recipes and farming tips
+Body Text: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
 
-  Contact Page:  
-  Map, contact form, phone number, and social media links
+Hierarchy: Clear visual hierarchy with consistent spacing
 
+Components
+Buttons: Primary, outline, and disabled states
 
-  5. Design and User Experience
+Cards: Product and blog cards with hover effects
 
-   Aesthetic: 
-   Clean, modern, and earthy
+Forms: Validated input fields with error states
 
-  - Color Scheme: 
-   Green: `#4CAF50`  
-   Brown: `#795548`  
-   Cream: `#FFF9E6`  
-   White: `#FFFFFF`
+Navigation: Sticky header with active states
 
-    Typography: 
-    Headings: Playfair Display 
-    Body: Lato
+🚀 Installation & Setup
+Clone or Download the project files
 
-    UX Features:  
-    Mobile-first responsive design  
-  - Sticky navigation  
-  - 3-step checkout  
-  - High-quality farm imagery
+Serve Locally using any web server:
 
-- Low-Fidelity Wireframe (Homepage Concept):
+bash
+# Using Python
+python -m http.server 8000
 
+# Using Node.js
+npx http-server
 
- 6. Technical Requirements
+# Using PHP
+php -S localhost:8000
+Open http://localhost:8000 in your browser
 
-- **Hosting:** Managed WordPress hosting (e.g., SiteGround, WP Engine)  
-- **Domain:** `www.freshfieldsorganic.co.za`  
-- **Platform:** WordPress + WooCommerce  
-- **Languages:** HTML5, CSS3, JavaScript, PHP  
+📱 Responsive Breakpoints
+Mobile: 320px+ (default)
 
- 7. Timeline and Milestones (8 Weeks)
+Tablet: 768px+
 
-| Weeks       | Milestone                            |
-|-------------|--------------------------------------|
-| Week 1–2    | Discovery & Planning (Sign-off)      |
-| Week 3–4    | Design & Development (Design Approval) |
-| Week 5–6    | Content Upload & Functionality       |
-| Week 7      | Testing, Review, Client Feedback     |
-| Week 8      | Launch & Handover (Go-Live)          |
+Desktop: 1024px+
 
-8. CSS Architecture
+Large Screens: 1440px+
 
-This CSS strategy embodies a clean, modern, and earthy aesthetic, aligning with Jupiter Farms’ values of sustainability and organic living. It emphasizes intuitive user experience, visual consistency, and responsiveness across all screen sizes.
+🔧 Customization
+Adding New Products
+Update the products grid in index.html:
 
-🌿Color Palette
+html
+<div class="product-card">
+    <div class="product-img" style="background-image: url('your-image.jpg');"></div>
+    <div class="product-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-price">$X.XX / unit</p>
+        <button class="btn">Add to Cart</button>
+    </div>
+</div>
+Modifying Colors
+Update CSS variables in :root:
 
-Inspired by nature and organic farming practices, the design uses a grounded and harmonious color scheme:
+css
+:root {
+    --primary-green: #your-color;
+    --primary-brown: #your-color;
+    /* ... other variables */
+}
+Adding Blog Posts
+Extend the blog section with new posts:
 
-Primary Green (#4CAF50) – Used for call-to-action buttons, highlights, and active states
+html
+<div class="blog-post">
+    <div class="blog-img" style="background-image: url('blog-image.jpg');"></div>
+    <div class="blog-content">
+        <h3>Your Blog Title</h3>
+        <p>Blog excerpt...</p>
+        <a href="blog.html">Read More →</a>
+    </div>
+</div>
+📊 Performance Features
+Optimized Images: Proper sizing and compression
 
-Earth Brown (#795548) – Accents, borders, and secondary components
+Efficient CSS: Minimal, focused styling
 
-Cream Background (#FFF9E6) – Section backgrounds and content cards
+Fast Loading: Optimized asset delivery
 
-Pure White (#FFFFFF) – Text containers, headers, and form areas
+Smooth Interactions: Hardware-accelerated animations
 
-✍️ Typography
+🌐 Browser Support
+✅ Chrome (latest 2 versions)
 
-Headings: Playfair Display – A serif font to convey elegance and trust
+✅ Firefox (latest 2 versions)
 
-Body Text: Lato – A modern, readable sans-serif for clear content delivery
+✅ Safari (latest 2 versions)
 
-Fallback Fonts: System fonts for performance and cross-platform consistency
+✅ Edge (latest 2 versions)
 
-🧱 CSS Architecture
+📞 Contact Integration
+The contact form includes:
 
-The project follows a modular, scalable CSS architecture, separating concerns across multiple stylesheets:
+Real-time validation
 
-1. Base Styles (base.css)
+Success/error notifications
 
-Normalize/reset styles
+Loading states
 
-Define root variables (colors, spacing, fonts)
+Accessible error messages
 
-Apply global styles for body, headings, links, etc.
+🔒 Security Features
+Form validation and sanitization
 
-2. Layout Styles (layout.css)
+XSS prevention through proper encoding
 
-Responsive grid and Flexbox structure
+Secure form submission handling
 
-Header, nav, main, and footer layout styling
+📈 SEO Features
+Semantic HTML structure
 
-Product grids and content alignment
+Proper heading hierarchy
 
-3. Component Styles (components.css)
+Meta tags and descriptions
 
-Buttons (primary, secondary, ghost)
+Alt text for images
 
-Cards (products, blogs, highlights)
+Fast loading times
 
-Forms (contact, checkout, newsletter)
+🎯 Future Enhancements
+Shopping cart functionality
 
-Navigation (desktop menu, mobile dropdown)
+User authentication system
 
-4. Page-Specific Styles (pages/)
+Payment gateway integration
 
-Homepage: Hero banner and seasonal features
+Product search and filtering
 
-Shop: Grid layout, filters, and product display
+Inventory management
 
-About: Story-driven section formatting
+Order tracking system
 
-Blog: Article previews and recipe cards
+👥 Team
+Developer: Jupiter Ngwenya
 
-Contact: Form and location details
+Student Number: ST10465627
 
-📱 Responsive Design Strategy
+Course: WEDE5020 (2025)
 
-The layout is mobile-first, scaling smoothly across device sizes. Key breakpoints include:
+📄 License
+All rights reserved © 2023 Jupiter Farms.
 
-Mobile (default): 320px+
+Jupiter Farms - Project Changelog
 
-Tablet: ≥ 768px
+All notable changes to the Jupiter Farms e-commerce website project will be documented in this file.
 
-Desktop: ≥ 1024px
+The format is based on Keep a Changelog,
+and this project adheres to Semantic Versioning.
 
-Large Screens: ≥ 1440px
+[1.1.0] - 2025-01-XX
+Added
+Advanced Form Validation System
 
-Responsive Features:
+Comprehensive client-side validation for contact forms
 
-Scalable typography
+Real-time field validation with error messaging
 
-Adaptive grid layouts
+Email and phone number format validation
 
-Mobile-friendly navigation (hamburger menu)
+Success/error notification system
 
-Optimized images for varied screen resolutions
+Loading states for form submission
 
-Touch-target spacing for buttons and links
+Enhanced User Experience
 
-💡 User Experience Enhancements
-🧭 Navigation & Accessibility
+Smooth animations for notifications (slideIn, slideOut)
 
-Sticky navigation bar for persistent menu access
+Improved form feedback mechanisms
 
-Strong visual hierarchy using spacing and font sizes
+Accessible error messages with proper ARIA attributes
 
-WCAG AA-compliant color contrast for readability
+Form field focus states and visual feedback
 
-Keyboard-friendly with visible focus states
+Newsletter Subscription
 
-Semantic HTML and ARIA labels for assistive tech
+Email validation for newsletter signups
 
-🚀 Performance Optimization
+AJAX-style subscription simulation
 
-Minified CSS for faster load times
+Success confirmation for subscribers
 
-Critical CSS inlined to prioritize visible content
+Technical Improvements
+Modular JavaScript Architecture
 
-Lazy-loaded images for better performance
+FormValidator class for reusable form validation
 
-Hardware-accelerated animations via transform and opacity
+Event-driven form handling
 
-✨ Interactive Elements
+Promise-based form submission simulation
 
-Smooth hover and focus transitions
+Configurable validation rules per field
 
-Visual feedback for loading and form submissions
+Enhanced CSS Structure
 
-Micro-interactions to enhance engagement without distraction
+Form-specific styles in style.css
 
-🌐 Browser Compatibility
+Error state styling for form fields
 
-The CSS is tested across modern browsers:
+Responsive form layouts
 
-✅ Google Chrome (latest 2 versions)
+Notification component styling
 
-✅ Mozilla Firefox (latest 2 versions)
+Code Organization
 
-✅ Apple Safari (latest 2 versions)
+Separation of concerns (HTML, CSS, JavaScript)
 
-✅ Microsoft Edge (latest 2 versions)
+Modular component architecture
 
+Reusable validation patterns
 
+[1.0.0] - 2025-01-XX
+Added
+Initial Project Launch
 
+Complete website structure and layout
 
- 9. Budget
+Responsive design implementation
 
- Setup Costs (Year 1)
+Mobile-first CSS architecture
 
-| Item               | Cost (ZAR) | Description                                    |
-|--------------------|------------|------------------------------------------------|
-| Domain Name        | R150       | Website address                                |
-| Website Theme      | R900       | Premium WordPress theme                        |
-| Development        | R28,000    | Full site design & development                 |
-| Add-ons & Plugins  | R2,000     | E-commerce tools, security, etc.               |
-| **Subtotal**       | R31,050    |                                                |
-| **VAT (15%)**      | R4,657.50  |                                                |
-| **Total**          | R35,707.50 |                                                |
+Cross-browser compatibility
 
- Yearly Running Costs
+Core Pages
 
-| Item               | Cost (ZAR/year) | Description                             |
-|--------------------|------------------|-----------------------------------------|
-| Website Hosting    | R5,400           | Webspace and server management          |
-| Domain Renewal     | R150             | Annual domain fee                       |
-| Plugin Renewals    | R2,000           | Security & feature updates              |
-| **Subtotal**       | R7,550           |                                         |
-| **VAT (15%)**      | R1,132.50        |                                         |
-| **Total**          | R8,682.50        |                                         |
+Homepage with hero section and featured products
 
+Shop page framework
 
- 10. Wireframes
+Our Story about section
 
- Note: Wireframes to be attached separately as low-fidelity sketches.
+Blog/Recipes section
 
-- Home 
-- Shop  
-- Our Story 
-- Blog 
-- Contact Us
+Contact page structure
 
- 11. References
+Design System
 
-- Jupiter Farms. (2025).  
-- Patel, N. (2023). *Marketing Metrics: The Definitive Guide to Measuring Marketing Performance.*  
-- WooCommerce. (2024). [Official Documentation](https://woocommerce.com/documentation/)  
-- Assets from: [Pixabay](https://pixabay.com/)
+Custom color palette inspired by organic farming
 
+Typography hierarchy (Playfair Display, Lato)
 
+Component-based CSS architecture
 
+Consistent spacing and layout patterns
+
+User Interface Components
+
+Sticky navigation header with active states
+
+Product cards with hover effects
+
+Call-to-action buttons (primary, outline variants)
+
+Section titles with decorative elements
+
+Footer with multi-column layout
+
+Responsive Features
+
+Mobile-optimized navigation
+
+Flexible grid systems
+
+Adaptive typography scaling
+
+Touch-friendly interactive elements
+
+Interactive Elements
+
+Basic shopping cart functionality
+
+User account placeholder
+
+Search functionality simulation
+
+Smooth hover transitions and animations
+
+Technical Foundation
+CSS Architecture
+
+CSS custom properties (variables) for theming
+
+Modular stylesheets organization
+
+Responsive breakpoint system
+
+Utility classes for common patterns
+
+Performance Optimizations
+
+Optimized image loading
+
+Efficient CSS selectors
+
+Minimal JavaScript footprint
+
+Fast loading times
+
+Accessibility Features
+
+Semantic HTML structure
+
+Proper heading hierarchy
+
+Keyboard navigation support
+
+Color contrast compliance
+
+[Pre-Release] - 2024-12-XX
+Added
+Project proposal and scope definition
+
+Wireframe designs and mockups
+
+Technical requirements documentation
+
+Development timeline and milestones
+
+Budget planning and cost analysis
+
+Types of Changes
+Added for new features.
+
+Changed for changes in existing functionality.
+
+Deprecated for soon-to-be removed features.
+
+Removed for now removed features.
+
+Fixed for any bug fixes.
+
+Security in case of vulnerabilities.
+
+Versioning Scheme
+Major version (1.x.x): Breaking changes or major feature additions
+
+Minor version (x.1.x): New features in a backward-compatible manner
+
+Patch version (x.x.1): Backward-compatible bug fixes
+
+Maintenance
+This changelog is maintained by Jupiter Ngwenya (ST10465627) as part of the WEDE5020 course requirements.
