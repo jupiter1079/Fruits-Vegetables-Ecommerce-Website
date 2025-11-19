@@ -236,46 +236,22 @@
             margin-bottom: 2rem;
         }
 
-        .contact-item {
+        .contact-detail {
             display: flex;
             align-items: flex-start;
             margin-bottom: 1.5rem;
         }
 
-        .contact-icon {
-            background-color: var(--primary-green);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .contact-text h4 {
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-text p {
-            margin-bottom: 0;
-            color: var(--dark-gray);
-        }
-
-        .hours {
-            margin-top: 2rem;
-        }
-
-        .hours h4 {
-            margin-bottom: 0.5rem;
+        .contact-detail i {
+            font-size: 1.2rem;
             color: var(--primary-green);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
         }
 
-        .hours p {
-            margin-bottom: 0.25rem;
+        .contact-detail h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
         }
 
         .contact-form {
@@ -293,11 +269,12 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--dark-gray);
         }
 
         .form-control {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-family: inherit;
@@ -316,6 +293,12 @@
             resize: vertical;
         }
 
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
         .map-container {
             margin-top: 4rem;
             border-radius: 8px;
@@ -323,10 +306,13 @@
             box-shadow: var(--shadow);
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
+        .map-placeholder {
+            background-color: var(--light-gray);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
         }
 
         /* FAQ Section */
@@ -336,11 +322,11 @@
         }
 
         .faq-item {
-            background-color: var(--white);
+            margin-bottom: 1.5rem;
+            background: var(--white);
             border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow);
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
         .faq-question {
@@ -357,6 +343,11 @@
             background-color: rgba(45, 90, 39, 0.05);
         }
 
+        .faq-question.active {
+            background-color: rgba(45, 90, 39, 0.1);
+            color: var(--primary-green);
+        }
+
         .faq-answer {
             padding: 0 1.5rem;
             max-height: 0;
@@ -367,15 +358,6 @@
         .faq-answer.active {
             padding: 0 1.5rem 1.5rem;
             max-height: 500px;
-        }
-
-        .faq-toggle {
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .faq-toggle.active {
-            transform: rotate(45deg);
         }
 
         /* Footer */
@@ -449,11 +431,10 @@
             
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
             
-            .map-container iframe {
-                height: 300px;
+            .form-row {
+                grid-template-columns: 1fr;
             }
             
             h1 {
@@ -474,7 +455,7 @@
                 padding: 0 0.5rem;
             }
             
-            .contact-info, .contact-form {
+            .contact-form, .contact-info {
                 padding: 1.5rem;
             }
             
@@ -528,6 +509,16 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Success Message */
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -555,57 +546,88 @@
     <!-- Contact Section -->
     <section class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
+                    <h3>Contact Information</h3>
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <h4>Our Location</h4>
+                        <div class="contact-detail">
+                            <i>📍</i>
+                            <div>
+                                <h4>Address</h4>
                                 <p>626 Makou Street, Monument Park</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <h4>Phone Number</h4>
+                        <div class="contact-detail">
+                            <i>📞</i>
+                            <div>
+                                <h4>Phone</h4>
                                 <p>(123) 456-7890</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div class="contact-text">
-                                <h4>Email Address</h4>
+                        <div class="contact-detail">
+                            <i>✉️</i>
+                            <div>
+                                <h4>Email</h4>
                                 <p>info@jupiterfarms.com</p>
                             </div>
                         </div>
+                        <div class="contact-detail">
+                            <i>🕒</i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday-Friday: 9am-6pm</p>
+                                <p>Saturday: 10am-4pm</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hours">
-                        <h4>Business Hours</h4>
-                        <p>Monday-Friday: 9am-6pm</p>
-                        <p>Saturday: 10am-4pm</p>
-                        <p>Sunday: Closed</p>
+                    <h3>Follow Us</h3>
+                    <p>Stay connected with Jupiter Farms on social media for updates, promotions, and farm news.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" style="margin-right: 1rem;">📘 Facebook</a>
+                        <a href="#" style="margin-right: 1rem;">📷 Instagram</a>
+                        <a href="#">🐦 Twitter</a>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                    <div class="success-message" id="success-message">
+                        Thank you for your message! We'll get back to you soon.
+                    </div>
+                    <form id="enquiry-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" class="form-control" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="subject">Subject *</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="order">Order Issue</option>
+                                <option value="wholesale">Wholesale Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
@@ -613,7 +635,9 @@
                 </div>
             </div>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28735.04173267876!2d28.210732782190828!3d-25.807525548649398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95614603d8b819%3A0xe2ebf471e7599868!2sMonument%20Park%2C%20Pretoria%2C%200105!5e0!3m2!1sen!2sza!4v1761758467005!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" allowfullscreen="" loading="lazy"></iframe>
+                <div class="map-placeholder">
+                    <p>Interactive Map Would Appear Here</p>
+                </div>
             </div>
         </div>
     </section>
@@ -626,7 +650,7 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Do you offer delivery services?</span>
-                        <span class="faq-toggle">+</span>
+                        <span>+</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes, we offer delivery within a 20-mile radius of our farm. Delivery fees vary based on distance and order size. Free delivery is available for orders over $50.</p>
@@ -635,37 +659,37 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>What payment methods do you accept?</span>
-                        <span class="faq-toggle">+</span>
+                        <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and cash for in-person purchases.</p>
+                        <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and Apple Pay. For in-person purchases, we also accept cash.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are all your products certified organic?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our products are certified organic by the USDA. We follow strict organic farming practices and never use synthetic pesticides or fertilizers.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Can I visit the farm?</span>
-                        <span class="faq-toggle">+</span>
+                        <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! We welcome visitors to our farm during business hours. We offer guided tours on Saturdays at 11am and 2pm. Please call ahead to schedule larger groups.</p>
+                        <p>We offer farm tours on select weekends throughout the year. Please check our events calendar or contact us to schedule a visit. Group tours are available by appointment.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Do you offer wholesale pricing?</span>
-                        <span class="faq-toggle">+</span>
+                        <span>+</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes, we offer wholesale pricing for restaurants, grocery stores, and other businesses. Please contact us directly to discuss your needs and set up an account.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Are all your products organic?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, all our produce is certified organic. We follow sustainable farming practices and never use synthetic pesticides or fertilizers.</p>
                     </div>
                 </div>
             </div>
@@ -726,22 +750,43 @@
             alert('Account functionality would go here. This is a demo site.');
         });
 
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.\n\nThis is a demo form, so no actual message was sent.');
-            document.getElementById('contactForm').reset();
-        });
-
-        // FAQ toggle functionality
+        // FAQ functionality
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
-                const toggle = question.querySelector('.faq-toggle');
+                const isActive = answer.classList.contains('active');
                 
-                answer.classList.toggle('active');
-                toggle.classList.toggle('active');
+                // Close all FAQ answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.querySelector('span:last-child').textContent = '+';
+                });
+                
+                // If the clicked question wasn't active, open it
+                if (!isActive) {
+                    answer.classList.add('active');
+                    question.classList.add('active');
+                    question.querySelector('span:last-child').textContent = '−';
+                }
             });
+        });
+
+        // Form submission
+        document.getElementById('enquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server here
+            // For this demo, we'll just show a success message
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Reset the form
+            this.reset();
+            
+            // Scroll to the success message
+            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
